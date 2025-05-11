@@ -11,7 +11,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@Data
 public class User implements UserDetails {
 
 
@@ -70,4 +69,53 @@ public class User implements UserDetails {
 
     @Column(name = "verification_expiration")
     private LocalDateTime verificationExpiration;
+
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
+
+    public LocalDateTime getVerificationExpiration() {
+        return verificationExpiration;
+    }
+
+    public void setVerificationExpiration(LocalDateTime verificationExpiration) {
+        this.verificationExpiration = verificationExpiration;
+    }
 }

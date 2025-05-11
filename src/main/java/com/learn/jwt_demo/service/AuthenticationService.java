@@ -46,8 +46,9 @@ public class AuthenticationService {
     public User authenticate(LoginUserDTO input){
         User user = userRepository.findByEmail(input.getEmail())
                 .orElseThrow(()-> new RuntimeException(("User Not Found")));
-        if(!user.isEnabled())
-            throw  new RuntimeException(("Account not verified. Please verify your account"));
+        if(!user.isEnabled()) {
+            throw new RuntimeException(("Account not verified. Please verify your account"));
+        }
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         input.getEmail(),
